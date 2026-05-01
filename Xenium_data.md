@@ -84,7 +84,77 @@ sdata.write("Xenium.zarr", overwrite=True)
 <pre>
 adata = sdata.tables["table"]
 adata
+adata.obs
 </pre>
+
+<h2>Cell-Level Spatial Transcriptomics Summary</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead style="background-color: #f2f2f2;">
+        <tr>
+            <th>Cell ID</th>
+            <th>Transcript Counts</th>
+            <th>Total Counts</th>
+            <th>Cell Area</th>
+            <th>Nucleus Area</th>
+            <th>Nucleus Count</th>
+            <th>Segmentation Method</th>
+            <th>Region</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>aadmbfof-1</td>
+            <td>29</td>
+            <td>29</td>
+            <td>43.89</td>
+            <td>18.42</td>
+            <td>1</td>
+            <td>ATP1A1+CD45+E-Cad boundary</td>
+            <td>cell_circles</td>
+        </tr>
+        <tr>
+            <td>aageapbo-1</td>
+            <td>46</td>
+            <td>46</td>
+            <td>42.22</td>
+            <td>23.12</td>
+            <td>1</td>
+            <td>ATP1A1+CD45+E-Cad boundary</td>
+            <td>cell_circles</td>
+        </tr>
+        <tr>
+            <td>aakefffb-1</td>
+            <td>27</td>
+            <td>27</td>
+            <td>18.24</td>
+            <td>12.73</td>
+            <td>1</td>
+            <td>ATP1A1+CD45+E-Cad boundary</td>
+            <td>cell_circles</td>
+        </tr>
+        <tr>
+            <td>abkjennb-1</td>
+            <td>29</td>
+            <td>29</td>
+            <td>41.04</td>
+            <td>28.49</td>
+            <td>1</td>
+            <td>ATP1A1+CD45+E-Cad boundary</td>
+            <td>cell_circles</td>
+        </tr>
+        <tr>
+            <td>acdcmlfl-1</td>
+            <td>40</td>
+            <td>40</td>
+            <td>22.08</td>
+            <td>13.63</td>
+            <td>1</td>
+            <td>ATP1A1+CD45+E-Cad boundary</td>
+            <td>cell_circles</td>
+        </tr>
+    </tbody>
+</table>
 
 
 <h2>6. QC Preparation for Spatial Analysis</h2>
@@ -111,6 +181,31 @@ adata.uns["spatial"]["spatial"]["metadata"] = {
 }
 </pre>
 
+<h2>Spatial Coordinates of Cells</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead style="background-color: #f2f2f2;">
+        <tr>
+            <th>Cell Index</th>
+            <th>X Coordinate</th>
+            <th>Y Coordinate</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1</td><td>64.64</td><td>613.75</td></tr>
+        <tr><td>2</td><td>107.50</td><td>621.21</td></tr>
+        <tr><td>3</td><td>123.23</td><td>630.40</td></tr>
+        <tr><td>4</td><td>116.32</td><td>627.98</td></tr>
+        <tr><td>5</td><td>122.88</td><td>626.17</td></tr>
+        <tr><td>6</td><td>119.04</td><td>622.41</td></tr>
+        <tr><td>7</td><td>105.66</td><td>617.04</td></tr>
+        <tr><td>8</td><td>97.07</td><td>626.52</td></tr>
+        <tr><td>9</td><td>103.02</td><td>628.43</td></tr>
+        <tr><td>10</td><td>100.68</td><td>614.05</td></tr>
+        <tr><td>...</td><td>...</td><td>...</td></tr>
+        <tr><td>358</td><td>65.03</td><td>36.72</td></tr>
+    </tbody>
+</table>
 
 
 <h2>7. Quality Control Metrics</h2>
@@ -131,7 +226,22 @@ print(f"Negative DNA probe count % : {cprobes}")
 print(f"Negative decoding count % : {cwords}")
 </pre>
 
+<h2>Quality Control Results</h2>
 
+<p><b>Result:</b> During preprocessing of the Xenium spatial transcriptomics dataset, quality control was performed to assess background noise and decoding accuracy. Two key metrics were evaluated:</p>
+
+<ul>
+    <li><b>Negative DNA probe count (%):</b> 0.0116%</li>
+    <li><b>Negative decoding count (%):</b> 0.0058%</li>
+</ul>
+
+<p>
+These extremely low percentages indicate minimal background signal and very low decoding errors. This suggests that the dataset has high technical quality, with reliable probe hybridization and accurate barcode decoding.
+</p>
+
+<p>
+Overall, the QC results confirm that the data is suitable for downstream spatial gene expression analysis.
+</p>
 <h2>8. QC Visualization</h2>
 
 <p>Histograms show distributions of transcript counts, gene counts, cell area, and nucleus ratio. These help identify outliers and define filtering thresholds.</p>
