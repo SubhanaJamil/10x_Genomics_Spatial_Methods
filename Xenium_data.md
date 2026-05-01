@@ -263,6 +263,7 @@ sns.histplot(adata.obs["cell_area"], kde=False, ax=axs[2])
 axs[3].set_title("Nucleus ratio")
 sns.histplot(adata.obs["nucleus_area"] / adata.obs["cell_area"], kde=False, ax=axs[3])
 </pre>
+<img width="1229" height="393" alt="QC_ Visualization" src="https://github.com/user-attachments/assets/bf8af9a8-9bc5-43aa-b6bb-08d381c408a9" />
 
 
 <h2>9. Filtering and Preprocessing</h2>
@@ -310,6 +311,7 @@ sc.pl.umap(
     wspace=0.4,
 )
 </pre>
+<img width="2196" height="431" alt="UMAP Visualization" src="https://github.com/user-attachments/assets/b51ae8b2-828e-4170-8bef-147d77d058d6" />
 
 
 
@@ -331,6 +333,7 @@ sq.pl.spatial_scatter(
 )
 </pre>
 
+<img width="991" height="176" alt="Spatial Coordinates" src="https://github.com/user-attachments/assets/46927086-baa2-41e6-a6e5-5c58436163e2" />
 
 <h2>13. Spatial Graph and Centrality Analysis</h2>
 
@@ -343,6 +346,7 @@ sq.gr.centrality_scores(adata, cluster_key="leiden")
 
 sq.pl.centrality_scores(adata, cluster_key="leiden", figsize=(16, 5))
 </pre>
+<img width="1611" height="511" alt="Centrality scores" src="https://github.com/user-attachments/assets/197095f8-5537-4cfc-b7f5-5514c109020f" />
 
 
 
@@ -377,6 +381,7 @@ sq.pl.spatial_scatter(
     library_id="spatial"
 )
 </pre>
+<img width="1011" height="711" alt="co-occurrence probability" src="https://github.com/user-attachments/assets/434d96a0-e2ad-43e6-9d2e-b44718ea5818" />
 
 <h2>15. Neighborhood Enrichment Analysis</h2>
 
@@ -394,6 +399,7 @@ sq.pl.nhood_enrichment(
 )
 sq.pl.spatial_scatter(adata_subsample, color="leiden", shape=None, size=2, ax=ax[1])
 </pre>
+<img width="946" height="600" alt="Neighbors enrichment analysis" src="https://github.com/user-attachments/assets/926b2329-9a77-41fe-b9ae-23a6bb25ab6b" />
 
 <h2>16. Spatial Autocorrelation (Moran’s I)</h2>
 
@@ -410,6 +416,135 @@ sq.gr.spatial_autocorr(
 
 adata_subsample.uns["moranI"].head(10)
 </pre>
+<h2>Spatial Gene Statistics and Enrichment Scores</h2>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+    <thead style="background-color: #f2f2f2;">
+        <tr>
+            <th>Gene</th>
+            <th>pval_norm</th>
+            <th>var_norm</th>
+            <th>pval_z_sim</th>
+            <th>pval_sim</th>
+            <th>var_sim</th>
+            <th>pval_norm_fdr_bh</th>
+            <th>pval_z_sim_fdr_bh</th>
+            <th>pval_sim_fdr_bh</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>MS4A1</td>
+            <td>0.564231</td>
+            <td>0.000000e+00</td>
+            <td>0.002025</td>
+            <td>0.000000e+00</td>
+            <td>0.009901</td>
+            <td>0.002952</td>
+            <td>0.000000e+00</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>TFPI</td>
+            <td>0.367479</td>
+            <td>0.000000e+00</td>
+            <td>0.002025</td>
+            <td>1.796341e-13</td>
+            <td>0.009901</td>
+            <td>0.002600</td>
+            <td>1.520902e-11</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>THBS2</td>
+            <td>0.294688</td>
+            <td>1.176337e-11</td>
+            <td>0.002025</td>
+            <td>1.535676e-09</td>
+            <td>0.009901</td>
+            <td>0.002374</td>
+            <td>6.501030e-08</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>HLA-DRA</td>
+            <td>0.291154</td>
+            <td>2.004641e-11</td>
+            <td>0.002025</td>
+            <td>2.763856e-11</td>
+            <td>0.002003</td>
+            <td>1.272947e-09</td>
+            <td>1.755048e-09</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>CXCR4</td>
+            <td>0.266137</td>
+            <td>7.341615e-10</td>
+            <td>0.002025</td>
+            <td>7.832648e-09</td>
+            <td>0.002332</td>
+            <td>3.729540e-08</td>
+            <td>2.486866e-07</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>DUSP2</td>
+            <td>0.241327</td>
+            <td>1.937111e-08</td>
+            <td>0.002025</td>
+            <td>1.213474e-13</td>
+            <td>0.001130</td>
+            <td>7.608255e-07</td>
+            <td>1.520902e-11</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>CD79A</td>
+            <td>0.240697</td>
+            <td>2.096763e-08</td>
+            <td>0.002025</td>
+            <td>2.163332e-09</td>
+            <td>0.001705</td>
+            <td>7.608255e-07</td>
+            <td>7.849806e-08</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>BANK1</td>
+            <td>0.237140</td>
+            <td>3.268371e-08</td>
+            <td>0.002025</td>
+            <td>1.460980e-09</td>
+            <td>0.001736</td>
+            <td>1.037708e-06</td>
+            <td>6.501030e-08</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>EGFL7</td>
+            <td>0.230524</td>
+            <td>7.342986e-08</td>
+            <td>0.002025</td>
+            <td>2.097620e-08</td>
+            <td>0.001792</td>
+            <td>2.072354e-06</td>
+            <td>5.030620e-07</td>
+            <td>0.059877</td>
+        </tr>
+        <tr>
+            <td>PROX1</td>
+            <td>0.216303</td>
+            <td>3.897483e-07</td>
+            <td>0.002025</td>
+            <td>5.193788e-07</td>
+            <td>0.002063</td>
+            <td>9.899606e-06</td>
+            <td>8.794814e-06</td>
+            <td>0.094900</td>
+        </tr>
+    </tbody>
+</table>
 
 <h2>17. Gene Expression Visualization</h2>
 
@@ -427,6 +562,8 @@ sq.pl.spatial_scatter(
     img=False,
 )
 </pre>
+<img width="765" height="431" alt="gene visualization" src="https://github.com/user-attachments/assets/fa892c18-7cd7-4237-8f7e-c45a21831b98" />
+
 
 <h2>18. Morphology-based Visualization</h2>
 
@@ -446,6 +583,7 @@ sdata.pl.render_images("morphology_focus").pl.render_shapes(
 ).pl.show()
 </pre>
 
+<img width="491" height="315" alt="Morphology focus" src="https://github.com/user-attachments/assets/6991002b-ceb9-4876-8239-ce0298f9477d" />
 
 <h2>19. Interactive Visualization</h2>
 
