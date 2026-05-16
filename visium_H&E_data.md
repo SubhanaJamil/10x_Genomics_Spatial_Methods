@@ -76,6 +76,8 @@ We visualize spatial clusters directly on the tissue section to understand anato
 This shows how different brain regions cluster spatially based on gene expression.
 </p>
 </div>
+<img width="651" height="221" alt="spatial cluster" src="https://github.com/user-attachments/assets/bea0d17c-5c6f-4207-95d8-5d9989098aaf" />
+
 
 <!-- 5 -->
 <div class="section">
@@ -158,6 +160,7 @@ We cluster image-derived features using PCA + Leiden clustering to find morpholo
 PCA reduces dimensionality, and Leiden groups similar tissue structures.
 </p>
 </div>
+<img width="1469" height="431" alt="2nd" src="https://github.com/user-attachments/assets/1b886ab1-0333-40ce-befc-769e81a3ba9d" />
 
 <!-- 8 -->
 <div class="section">
@@ -253,6 +256,7 @@ We compute how often clusters appear near each other in space.
   Shows spatial dependency between brain regions.
 </p>
 </div>
+<img width="811" height="411" alt="3rd cooccurenec" src="https://github.com/user-attachments/assets/ee5eae93-bb16-46e8-bed8-3c1a6c60b38c" />
 
 <!-- 13 -->
 <div class="section">
@@ -327,6 +331,8 @@ We visualize expression of spatially important genes on tissue.
   Shows how specific genes map to brain regions.
 </p>
 </div>
+<img width="2586" height="431" alt="spatial expression of selected 4th" src="https://github.com/user-attachments/assets/169f3bab-c030-4a38-9667-d48a9c7ad951" />
+
 
 </body>
 </html>
